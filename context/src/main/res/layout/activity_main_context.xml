@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel" type="com.example.context.viewModel.ContextViewModel"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.MainContextActivity">
+
+        <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--app:title="Context Demo"-->
+        <!--app:titleTextColor="@color/colorAccent"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+        <TextView
+                android:id="@+id/textview1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Regular"
+                app:layout_constraintBottom_toTopOf="@id/textview2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:id="@+id/textview2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Saved instance"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:id="@+id/textview3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.text3}"
+                tools:text="ObservableField"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview2"/>
+
+        <TextView
+                android:id="@+id/getDataTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/design_default_color_primary"
+                android:textColor="@color/black"
+                android:layout_marginBottom="30dp"
+                android:onClick="@{(view)->viewModel.onClick(view)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/nextPageTextView"
+                android:padding="10dp"
+                android:text="Get data"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+                android:id="@+id/nextPageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/design_default_color_primary"
+                android:textColor="@color/black"
+                android:layout_marginBottom="30dp"
+                android:onClick="@{(view)->viewModel.onClick(view)}"
+                app:layout_constraintStart_toEndOf="@id/getDataTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="10dp"
+                android:text="Next Page"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
